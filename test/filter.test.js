@@ -23,4 +23,22 @@ describe('filter()', () => {
     const abilityScores = _.filter(characterAttributes, (value) => !isNaN(value));
     expect(abilityScores).toEqual([4, 7, 10, 16, 5, 4]);
   });
+
+  it('filters an object to only non numeric values', () => {
+    const characterAttributes = {
+      name: 'Nikerys AllMighty',
+      honorific: 'Lord of Neverwinter',
+      race: 'human',
+      class: 'Weapon Master',
+      strength: 16,
+      constitution: 12,
+      dexterity: 12,
+      intelligence: 8,
+      wisdom: 8,
+      charisma: 8
+    };
+
+    const characterInfo = _.filter(characterAttributes, (value) => !!isNaN(value));
+    expect(characterInfo).toEqual(['Nikerys AllMighty', 'Lord of Neverwinter', 'human', 'Weapon Master']);
+  });
 });

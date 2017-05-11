@@ -16,6 +16,23 @@ describe('every()', () => {
       const nums = [1, 3, 5, 6, 7];
       expect(_.every(nums, num => num % 2 === 1)).toBe(false);
     });
+});
+
+  describe('processing an array of strings', () => {
+    it('will return true if no callback is supplied', () => {
+      const array = ['Tim', 'Kay', 'Allen', 'Dan'];
+      expect(_.every(array)).toBe(true);
+    });
+
+    it('will return true if length of the name is less than or equal 5', () => {
+      const array = ['Tim', 'Kay', 'Allen', 'Dan'];
+      expect(_.every(array, name => name.length <= 5)).toBe(true);
+    });
+
+    it('will return false if length of the name is more than 5', () => {
+      const array = ['Tim', 'Kay', 'Allen', 'Dan'];
+      expect(_.every(array, name => name.length > 5)).toBe(false);
+    });
 
   });
 });

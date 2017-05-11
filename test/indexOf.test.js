@@ -26,4 +26,8 @@ describe('indexOf()', () => {
     expect(_.indexOf(arr, 'bar', 2)).toBe(3);
   });
 
+  it('returns the first matching index when fromIndex is negative', () => {
+    const arr = ['foo', 'bar', 'baz', 'bar', 'bar', ''];
+    expect(_.indexOf(arr, 'baz', -5)).toBe(2);
+  });
 });

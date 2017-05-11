@@ -31,4 +31,14 @@ describe('contains()', () => {
     expect(_.contains(ponies, 'Applejack')).toBe(false);
   });
 
+  it('returns true if the target value is among the values of an array and false if not', () => {
+    const array = [true, false, null, undefined, ''];
+    expect(_.contains(array, '')).toBe(true);
+    expect(_.contains(array, true)).toBe(true);
+    expect(_.contains(array, false)).toBe(true);
+    expect(_.contains(array, null)).toBe(true);
+    expect(_.contains(array, undefined)).toBe(true);
+    expect(_.contains(array, 'something else')).toBe(false);
+  });
+
 });

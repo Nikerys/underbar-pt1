@@ -18,4 +18,22 @@ describe('reject()', () => {
     const orderItems = _.reject(order, (value) => value === null);
     expect(orderItems).toEqual(['burger', 'ketchup', 'cookie']);
   });
+
+    it('rejects non numeric values in the object', () => {
+    const characterAttributes = {
+      name: 'Nikerys AllMighty',
+      honorific: 'Lord of Neverwinter',
+      race: 'human',
+      class: 'Weapon Master',
+      strength: 16,
+      constitution: 12,
+      dexterity: 12,
+      intelligence: 8,
+      wisdom: 8,
+      charisma: 8
+    };
+
+    const characterInfo = _.reject(characterAttributes, (value) => isNaN(value));
+    expect(characterInfo).toEqual([16, 12, 12, 8, 8, 8]);
+  });
 });

@@ -13,4 +13,13 @@ describe('reduce()', () => {
     expect(result).toEqual(15);
   });
 
+  it('reduces an array of arrays to a single array', () => {
+    const flattened = [[0, 1], [2, 3], [4, 5]]
+    const result = _.reduce(flattened, function(a, b) {
+      return a.concat(b);
+    }, []);
+    
+    expect(result).toEqual([0, 1, 2, 3, 4, 5]);
+  });
+
 });
